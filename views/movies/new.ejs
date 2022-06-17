@@ -6,9 +6,9 @@
   <h1><%= title %></h1>
   <form id="new-form" action="/movies" method="POST">
     <label for="title-input">Title:</label>
-    <input type="text" name="title" id="title-input">
+    <input type="text" name="title" id="title-input" required>
     <label for="release-year-input">Release Year:</label>
-    <input type="text" name="releaseYear" id="release-year-input">
+    <input type="date" name="releaseYear" id="release-year-input">
     <label for="mpaa-rating-select">MPAA Rating:</label>
     <select name="mpaaRating" id="mpaa-rating-select">
       <option value="G">G</option>
