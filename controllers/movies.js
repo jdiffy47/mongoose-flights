@@ -8,8 +8,19 @@ function newMovie(req, res) {
 
 function create(req, res) {
   req.body.nowShowing = !!req.body.nowShowing
-  console.log("IT WORKS!")
-  console.log("FORM DATA:", req.body)
+  if (req.body.cast) {
+    req.body.cast = req.body.cast.split(", ")
+  }
+  Movie.create(req.body)
+  .then(movie => {
+    console.log(movie)
+    // SEND A GET REQUEST TO THIS URL!
+    res.redirect(`/movies/new`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/movies/new')
+  })
 }
 
 export {
