@@ -6,6 +6,9 @@ const router = Router()
 /* GET users listing. */
 router.get('/new', moviesCtrl.new)
 
+// POST localhost:3000/movies
+router.post('/', moviesCtrl.create)
+
 export {
   router
 }
