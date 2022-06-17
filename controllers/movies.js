@@ -15,15 +15,26 @@ function create(req, res) {
   .then(movie => {
     console.log(movie)
     // SEND A GET REQUEST TO THIS URL!
-    res.redirect(`/movies/new`)
+    res.redirect(`/movies`)
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/movies/new')
+    res.redirect('/movies')
+  })
+}
+
+function index(req, res) {
+  Movie.find({})
+  .then(movies => {
+    res.render("movies/index", {
+      movies: movies,
+      title: "All Movies",
+    })
   })
 }
 
 export {
   newMovie as new,
   create,
+  index,
 }
