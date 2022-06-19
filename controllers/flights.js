@@ -1,8 +1,8 @@
-import { Movie } from "../models/movie.js"
+import { Flight } from "../models/flight"
 
-function newMovie(req, res) {
-  res.render("movies/new", {
-    title: "Add Movie"
+function newFlight(req, res) {
+  res.render("flights/new", {
+    title: "Add Flight"
   })
 }
 
@@ -15,11 +15,11 @@ function create(req, res) {
   for (let key in req.body) {
 	  if (req.body[key] === '') delete req.body[key]
 	}
-  Movie.create(req.body)
-  .then(movie => {
-    console.log("CREATED MOVIE:", movie)
+  Flight.create(req.body)
+  .then(flight => {
+    console.log("CREATED FLIGHT:", flight)
     // SEND A GET REQUEST TO THIS URL!
-    res.redirect(`/movies`)
+    res.redirect(`/flights`)
   })
   .catch(err => {
     console.log(err)
@@ -28,17 +28,17 @@ function create(req, res) {
 }
 
 function index(req, res) {
-  Movie.find({})
-  .then(movies => {
-    res.render("movies/index", {
-      movies: movies,
-      title: "All Movies",
+  Flight.find({})
+  .then(flights => {
+    res.render("flights/index", {
+      flights: flights,
+      title: "All Flights",
     })
   })
 }
 
 export {
-  newMovie as new,
+  newFlight as new,
   create,
   index,
 }
