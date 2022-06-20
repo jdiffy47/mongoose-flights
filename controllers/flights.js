@@ -1,31 +1,30 @@
 import { Flight } from "../models/flight.js"
 
-// function newFlight(req, res) {
-//   res.render("flights/new", {
-//     title: "Add Flight"
-//   })
-// }
+function newFlight(req, res) {
+  res.render("flights/new", {
+    title: "Add Flight"
+  })
+}
 
-// function create(req, res) {
-//   console.log("REQ.BODY:", req.body)
-//   req.body.nowShowing = !!req.body.nowShowing
-//   if (req.body.cast) {
-//     req.body.cast = req.body.cast.split(", ")
-//   }
-//   for (let key in req.body) {
-// 	  if (req.body[key] === '') delete req.body[key]
-// 	}
-//   Flight.create(req.body)
-//   .then(flight => {
-//     console.log("CREATED FLIGHT:", flight)
-//     // SEND A GET REQUEST TO THIS URL!
-//     res.redirect(`/flights`)
-//   })
-//   .catch(err => {
-//     console.log(err)
-//     res.redirect('/movies')
-//   })
-// }
+function create(req, res) {
+  console.log("REQ.BODY:", req.body)
+  // req.body.nowShowing = !!req.body.nowShowing
+  if (req.body.departs) {
+    req.body.departs = req.body.departs.split(", ")
+  }
+  for (let key in req.body) {
+	if (req.body[key] === '') delete req.body[key]
+	}
+  Flight.create(req.body)
+  .then(flight => {
+    console.log("CREATED FLIGHT:", flight)
+    res.redirect(`/flights`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/flights')
+  })
+}
 
 function index(req, res) {
   Flight.find({})
@@ -38,7 +37,7 @@ function index(req, res) {
 }
 
 export {
-  // newFlight as new,
-  // create,
+  newFlight as new,
+  create,
   index
 }
