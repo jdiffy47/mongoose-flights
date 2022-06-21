@@ -61,16 +61,18 @@ function deleteFlight(req, res) {
 function edit(req, res) {
   Flight.findById(req.params.id)
   .then(flight => {
-    res.render('flight/edit', {
-      flight: flight,
-      title: 'Flight Detail'
+    res.render('flights/edit', {
+      flight,
+      title: 'Edit Flight'
     })
+  })
   .catch(err => {
     console.log(err)
     res.redirect('/')
   })
-  })
 }
+
+
 
 function update(req, res) {
   Flight.findByIdAndUpdate(req.params.id, req.body, {new: true})

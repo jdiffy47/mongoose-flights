@@ -1,14 +1,12 @@
 <%- include('../partials/html-head') %>
-  <link rel="stylesheet" href="/stylesheets/movies/edit.css" />
   <%- include('../partials/nav') %>
 
-    <main>
+    
       <main>
-        <h1>
-          <%= title %>
-        </h1>
-        <form id="new-form" action="/flights" method="POST">
+        <h1<%= title %></h1>
+        <form id="new-form" action="/flights/<%= flight._id %>??_method=PUT" method="POST">
           <label for="airline-input">Airline:</label>
+          <input type="text" name="airline" value="">
           <select name="airline" id="airline-input">
             <option value="American">American</option>
             <option value="Southwest">Southwest</option>
