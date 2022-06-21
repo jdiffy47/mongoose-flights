@@ -5,7 +5,12 @@
       <h1><%= title %></h1>
       <section>
         <div>Title: </div>
-        <div><%= flight.airline %></div>
+        <div>
+          <%= flight.airline %>
+          <a href="/flights<%= flight._id %>">
+            <button>Edit Flight</button>
+          </a>
+        </div>
         <div>Airport: </div>
         <div><%= flight.airport %></div>
         <div>FlightNo: </div>

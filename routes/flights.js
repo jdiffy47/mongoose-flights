@@ -9,14 +9,20 @@ router.get('/', flightsCtrl.index)
 // GET localhost:3000/flights/new
 router.get('/new', flightsCtrl.new)
 
-// GET localhost:3000/flights/:id
+// GET localhost:3000/flights/news
 router.get('/:id', flightsCtrl.show)
+
+
+// GET localhost:/movies/:id/edit
+router.get('/:id/edit', flightsCtrl.edit)
 
 // POST localhost:3000/flights
 router.post('/', flightsCtrl.create)
 
 // DELETE localhost:3000/flights/:id
 router.delete('/:id', flightsCtrl.delete)
+
+router.put('/:id', flightsCtrl.update)
 
 export {
   router
