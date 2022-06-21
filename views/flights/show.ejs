@@ -1,0 +1,18 @@
+<%- include('../partials/html-head') %>
+  <%- include('../partials/nav') %>
+
+    <main>
+      <h1><%= title %></h1>
+      <section>
+        <div>Title: </div>
+        <div><%= flight.airline %></div>
+        <div>Airport: </div>
+        <div><%= flight.airport %></div>
+        <div>FlightNo: </div>
+        <div><%= flight.flightNo %></div>
+        <div>Departs: </div>
+        <div><%= flight.departs %></div>
+      </section>
+    </main>
+
+    <%- include('../partials/footer') %>
