@@ -11,11 +11,12 @@ function newFlight(req, res) {
 }
 
 function create(req, res) {
-  console.log("REQ.BODY:", req.body)
+  // for (let key in req.body) {
+  // if (req.body[key] === '') delete req.body[key]
+  // }
   Flight.create(req.body)
   .then(flight => {
-    console.log("CREATED FLIGHT:", flight)
-    res.redirect(`/flights`)
+    res.redirect('/flights')
   })
   .catch(err => {
     console.log(err)
@@ -38,7 +39,7 @@ function show(req, res) {
   .then(flight => {
     res.render('flights/show', {
       flight: flight,
-      title: 'Airline Detail'
+      title: 'Flight Detail'
     })
   })
   .catch(err => {
@@ -61,8 +62,9 @@ function deleteFlight(req, res) {
 function edit(req, res) {
   Flight.findById(req.params.id)
   .then(flight => {
+    console.log(flight)
     res.render('flights/edit', {
-      flight,
+      flight: flight,
       title: 'Edit Flight'
     })
   })
