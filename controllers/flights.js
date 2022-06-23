@@ -110,7 +110,6 @@ function addToMeal(req, res) {
   Flight.findById(req.params.id)
     .then(flight => {
       flight.name.push(req.body.mealId)
-      // Save the movie
       flight.save()
         .then(() => {
           res.redirect(`/flights/${flight._id}`)
@@ -127,5 +126,5 @@ export {
   edit,
   update,
   createTicket,
-  addToCast
+  addToMeal
 }

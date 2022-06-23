@@ -19,7 +19,7 @@
         <div>Departs: </div>
         <div><%= flight.departs.toLocaleString()%></div>
       </section>
-      <form action="/flights/<%= meal._id %>/meals" method="POST">
+      <form action="/flights/<%= meals._id %>/meals" method="POST">
         <select name="mealId">
           <% meals.forEach(meal => { %> 
             <option value="<%= meal._id %>"><%= meal.name %></option> <% }) %> 
