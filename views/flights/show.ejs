@@ -19,6 +19,13 @@
         <div>Departs: </div>
         <div><%= flight.departs.toLocaleString()%></div>
       </section>
+      <ul>
+        <% flight.meals.forEach(meal=> { %>
+          <li>
+            <%= meal.name %>
+          </li>
+          <% }) %>
+      </ul>
       <form action="/flights/<%= meals._id %>/meals" method="POST">
         <select name="mealId">
           <% meals.forEach(meal => { %> 
